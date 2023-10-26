@@ -1,0 +1,9 @@
+package testcases1;
+
+import org.testng.annotations.Test;
+
+public class TC_02_MercuryToursPOM_Test {
+  @Test
+  public void f() {
+  }
+}

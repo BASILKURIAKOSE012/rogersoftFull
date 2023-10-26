@@ -1,0 +1,13 @@
+package basics;
+
+public class New {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		float a;
+		 a = (35/0);
+		 System.out.println(a);
+		
+	}
+
+}

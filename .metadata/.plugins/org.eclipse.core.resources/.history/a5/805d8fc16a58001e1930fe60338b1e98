@@ -1,0 +1,13 @@
+package arrays;
+
+public class Number {
+	public static void main(String[] args) {
+	       int[] num={-1,2,3,4,6};
+	       int min=num[0];
+	       for(int i=0;i<num.length;i++)
+	       {
+	           if(num[i]>0 && num[i]<min)
+	                 min=num[i];
+	       }
+}
+}

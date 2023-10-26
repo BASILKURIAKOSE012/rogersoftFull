@@ -1,0 +1,10 @@
+package selenium_07_alert_handling;
+
+public class Tc_04_TimerAlert {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

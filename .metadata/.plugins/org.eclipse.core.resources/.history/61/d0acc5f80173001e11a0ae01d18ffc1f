@@ -1,0 +1,35 @@
+package musafirpages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class CheckOutPage {
+	WebDriver driver;
+	
+	By titleAdult1 = By.xpath("(//select[@data-value-rule='required'])[1]");
+	By titleAdult2 = By.xpath("(//select[@data-value-rule='required'])[2]");;
+	By firstName = By.xpath("(//input[@placeholder='First name'])[1]");
+	By middleName = By.xpath("(//input[@placeholder='Middle name (optional)'])[1]");
+	By lastName = By.xpath("(//input[@placeholder='Last name'])[1]");
+
+	public CheckOutPage(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+	public void selectTitleAdult1(String titleNumber) {
+		WebElement titleAdultOne  = driver.findElement(titleAdult1);
+		Select titleAdultselect1  = new Select(titleAdultOne);
+		titleAdultselect1.selectByValue(titleNumber);
+	}
+	public void selectTitleAdult2(String titleNumber) {
+		WebElement titleAdultTwo  = driver.findElement(titleAdult2);
+		Select titleAdultselect2  = new Select(titleAdultTwo);
+		titleAdultselect2.selectByValue(titleNumber);
+	}
+	
+	
+	
+}

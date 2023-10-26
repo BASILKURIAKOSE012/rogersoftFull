@@ -1,0 +1,18 @@
+package ExampleCollections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExampleArrayList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List list = new ArrayList();
+		list.add(100);
+		list.add("basil");
+		
+		
+		System.out.println(list.get(0));
+	}
+
+}

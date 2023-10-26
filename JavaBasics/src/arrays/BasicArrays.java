@@ -1,0 +1,23 @@
+package arrays;
+
+public class BasicArrays {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int [] marks = new int[5];
+		marks[0]=89;
+		marks[1]=90;
+		marks[2]=99;
+		marks[3]=78;
+		marks[4]=88;
+		int[] mark2 = {5,6,7};
+		for(int i=0;i<5;i++) {
+			
+			System.out.println(marks[i]);
+		}
+		for(int j=0;j<mark2.length;j++) {
+			System.out.println(mark2[j]);
+		}
+	}
+
+}

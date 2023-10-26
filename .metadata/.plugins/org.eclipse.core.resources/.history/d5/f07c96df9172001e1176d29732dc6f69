@@ -1,0 +1,47 @@
+package musafirpages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class HomePage {
+	WebDriver driver;
+	By tripType = By.xpath("/html/body/form/div[3]/div[2]/div/div[1]/fieldset[1]/ul[2]/li[2]/label");
+	By originCity = By.xpath("//input[@name='Origin']");
+	By destinationCity = By.xpath("//input[@name='Destination']");
+	By startDate = By.xpath("//input[@name='StartDate']");
+	By adultFlight = By.xpath("//select[@name='AdultsFlight']");
+	By findFlights = By.xpath("//select[@name='AdultsFlight']");
+	
+
+	
+	public HomePage(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	public void clickTripType() {
+		driver.findElement(tripType).click();
+	}
+	public void enterOrginCity(String originCity) {
+		driver.findElement(this.originCity).sendKeys(originCity);
+	}
+	public void enterDestinationCity(String destinationCity) {
+		driver.findElement(this.originCity).sendKeys(destinationCity);
+	}
+	public void enterStartDate(String startDate) {
+		driver.findElement(this.startDate).sendKeys(startDate);
+	}
+	
+	public void enterAdultNumber(String adultNumber) {
+		WebElement dropDownAdult  = driver.findElement(adultFlight);
+		Select adultSelect  = new Select(dropDownAdult);
+		adultSelect.selectByValue(adultNumber);
+	}
+	public void clickFlight() {
+		driver.findElement(findFlights).click();
+	}
+
+	
+	
+}

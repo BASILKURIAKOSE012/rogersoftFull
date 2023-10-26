@@ -1,0 +1,51 @@
+package ExampleCollections;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+public class ExampleArrayList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List list = new ArrayList();
+		list.add(100);
+		list.add("basil");
+		list.add(102);
+		list.add(103);
+		
+		
+//		System.out.println(list.get(0));
+		list.add(2, "Rogersoft");
+//		list.remove(2);
+//		list.clear();
+		list.set(0, "Kochi");
+//		System.out.println(list);
+		for(int i=0;i<list.size();i++) {
+//			System.out.println(list.get(i));
+		}
+		
+		
+		//iterator
+		Iterator it = list.iterator();
+		while(it.hasNext()) {
+		System.out.println(it.next());
+		}
+		
+		//loop 
+		
+		 ArrayList<String> cars = new ArrayList<String>();
+		    cars.add("Volvo");
+		    cars.add("BMW");
+		    cars.add("Ford");
+		    cars.add("Mazda");
+		    for (String i : cars) {
+		      System.out.println(i);
+		    }
+		    Collections.sort(list, Collections.reverseOrder());
+		    System.out.println(   Collections.sort(list, Collections.reverseOrder()));
+		
+	}
+}

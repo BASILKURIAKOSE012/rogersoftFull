@@ -1,0 +1,22 @@
+package basics;
+
+import java.util.Scanner;
+
+public class Multiple {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int num;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the number");
+		num = sc.nextInt();
+		int multiple = 1;
+		
+        for(int i = 10; i <= 10; i--)
+        {
+            System.out.printf("%d * %d = %d \n", num, i, num * i);
+        }
+
+	}
+
+}

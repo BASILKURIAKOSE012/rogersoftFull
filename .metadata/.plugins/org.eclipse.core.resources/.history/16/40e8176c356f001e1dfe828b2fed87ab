@@ -1,0 +1,10 @@
+package pages;
+
+import org.openqa.selenium.By;
+
+public class LoginPage {
+	
+	By uname = By.name("userName");
+	By pswd = By.name("password");
+	By submittButton = By.name("submit");
+}

@@ -1,0 +1,42 @@
+package musafirpages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class PaymentPage {
+WebDriver driver;
+By iFrame = By.xpath("//div[@id='divPaymentPanel']//descendant::iframe");
+By creditCardNumber;
+By creditCardName;
+By creditCardExpiryMonth;
+By creditCardExpiryYear;
+By creditCardCVVCode;
+
+
+public PaymentPage(WebDriver driver) {
+	super();
+	this.driver = driver;
+}
+
+public void switchToIframes() {
+	WebElement newIframe = driver.findElement(iFrame);
+	driver.switchTo().frame(newIframe);
+}
+
+public void enterCreditCardNumber(String ccNumber) {
+	driver.findElement(creditCardNumber).sendKeys(ccNumber);
+}
+public void enterCreditCardName(String ccName) {
+	driver.findElement(creditCardNumber).sendKeys(ccName);
+}
+public void enterCreditCardExpiryYear(String ccYear) {
+	driver.findElement(creditCardNumber).sendKeys(ccYear);
+}
+public void enterCreditCardExpiryMonth(String ccMonth) {
+	driver.findElement(creditCardNumber).sendKeys(ccMonth);
+}
+public void enterCreditCardCVV(String ccCvv) {
+	driver.findElement(creditCardNumber).sendKeys(ccCvv);
+}
+}

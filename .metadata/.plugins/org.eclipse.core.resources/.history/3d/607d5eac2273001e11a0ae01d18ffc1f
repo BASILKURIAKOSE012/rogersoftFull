@@ -1,0 +1,42 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class RegisterPFPage {
+	WebDriver driver;
+	//By register = By.linkText("REGISTER");
+	@FindBy(linkText = "REGISTER") WebElement register;
+	//By firstName = By.xpath("//input[@name='firstName']");
+	@FindBy(xpath ="//input[@name='firstName']") WebElement firstName;
+	//By lastName = By.xpath("//input[@name='lastName']");
+	@FindBy(xpath ="//input[@name='lastName']") WebElement lastName;
+	//By phoneNumber = By.xpath("//input[@name='phone']");
+	@FindBy(xpath= "//input[@name='phone']" ) WebElement phoneNumber;
+	
+
+	public RegisterPFPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	public void clickRegister() {
+		driver.findElement(register).click();
+	}
+
+	public void enterFirstName(String fname) {
+		driver.findElement(firstName).sendKeys(fname);
+	}
+
+	public void enterLastName(String lname) {
+		driver.findElement(lastName).sendKeys(lname);
+	}
+
+	public void enterPhoneNumber(String pnumber) {
+		driver.findElement(phoneNumber).sendKeys(pnumber);
+	}
+
+}

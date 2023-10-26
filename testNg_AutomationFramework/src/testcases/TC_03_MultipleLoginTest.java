@@ -1,0 +1,68 @@
+package testcases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class TC_03_MultipleLoginTest {
+	WebDriver driver;
+	//valid username and valid password
+	@Test(priority = 1,enabled = false)
+	public void login1() {
+		driver.findElement(By.name("userName")).sendKeys("valid");
+		driver.findElement(By.name("password")).sendKeys("valid");
+		driver.findElement(By.name("submit")).click();
+	}
+	//invalid password
+	@Test(priority = 3,invocationCount = 3)
+	public void login2() {
+		driver.findElement(By.name("userName")).sendKeys("valid");
+		driver.findElement(By.name("password")).sendKeys("abcg");
+		driver.findElement(By.name("submit")).click();
+		WebElement errorMessage = driver.findElement(By.xpath("//span[contains(text(),'Enter your userName and password correct')]"));
+		Assert.assertTrue(errorMessage.isDisplayed());
+		System.out.println("error message is displayed "+ errorMessage.getText());
+		
+	}
+	//invalid username
+	@Test(priority = 2,enabled = false)
+	public void login3() {
+		driver.findElement(By.name("userName")).sendKeys("avg");
+		driver.findElement(By.name("password")).sendKeys("valid");
+		driver.findElement(By.name("submit")).click();
+		
+	}
+	//invalid username and password
+	@Test(priority = 4,description = "login with invalid username and password",enabled = false)
+	public void login4() {
+		driver.findElement(By.name("userName")).sendKeys("avg");
+		driver.findElement(By.name("password")).sendKeys("abc");
+		driver.findElement(By.name("submit")).click();
+		
+	}
+	
+	@BeforeMethod
+	public void loadingUrl() {
+		driver.get("https://demo.guru99.com/test/newtours/");
+	}
+	
+	@BeforeTest
+	public void beforeTest() {
+		System.setProperty("webdriver.chrome.driver", "drivers\\\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	
+	}
+
+	@AfterTest
+	public void afterTest() {
+		driver.close();
+	}
+
+}

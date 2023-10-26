@@ -1,0 +1,64 @@
+package musafirpages;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class PaymentPage {
+	WebDriver driver;
+	By iFrame = By.xpath("//div[@id='divPaymentPanel']//descendant::iframe");
+	By creditCardNumber = By.xpath("//input[@id='txtCreditCardNumber']");
+	By creditCardName = By.xpath("//input[@id='txtCreditCardNameAsOnCard']");
+	By creditCardExpiryMonth = By.xpath("//input[@id='ddlCreditCardExpiryMonth']");
+	By creditCardExpiryYear = By.xpath("//input[@id='ddlCreditCardExpiryYear']");
+	By creditCardCVVCode = By.xpath("//input[@id='txtCreditCardCVV']");
+
+	public PaymentPage(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+
+	public void switchToIframes() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		WebElement newIframe = wait.until(ExpectedConditions.presenceOfElementLocated(iFrame));
+		driver.switchTo().frame(newIframe);
+	}
+
+	public void enterCreditCardNumber(String ccNumber) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.presenceOfElementLocated(creditCardNumber)).sendKeys(ccNumber);
+
+	}
+
+	public void enterCreditCardName(String ccName) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.presenceOfElementLocated(creditCardName)).sendKeys(ccName);
+	}
+
+	public void enterCreditCardExpiryYear(String ccYear) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
+		WebElement dropDownYear = wait.until(
+				ExpectedConditions.presenceOfElementLocated(creditCardExpiryYear));
+		Select yearSelect = new Select(dropDownYear);
+		yearSelect.selectByValue(ccYear);
+	}
+
+	public void enterCreditCardExpiryMonth(String ccMonth) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
+		WebElement dropDownMonth = wait.until(
+				ExpectedConditions.presenceOfElementLocated(creditCardExpiryMonth));
+		Select monthSelect = new Select(dropDownMonth);
+		monthSelect.selectByValue(ccMonth);
+
+	}
+
+	public void enterCreditCardCVV(String ccCvv) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.presenceOfElementLocated(creditCardCVVCode)).sendKeys(ccCvv);
+	}
+}

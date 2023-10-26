@@ -1,0 +1,9 @@
+package musafirtestcases;
+
+import org.testng.annotations.Test;
+
+public class TC_01_MusafirPOM_Test {
+  @Test
+  public void f() {
+  }
+}

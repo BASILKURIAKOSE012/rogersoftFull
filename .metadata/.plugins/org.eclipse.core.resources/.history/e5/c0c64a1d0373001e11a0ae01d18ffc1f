@@ -1,0 +1,53 @@
+package musafirpages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class CheckOutPage {
+	WebDriver driver;
+
+	By titleAdult1 = By.xpath("(//select[@data-value-rule='required'])[1]");
+	By firstName = By.xpath("(//input[@placeholder='First name'])[1]");
+	By middleName = By.xpath("(//input[@placeholder='Middle name (optional)'])[1]");
+	By lastName = By.xpath("(//input[@placeholder='Last name'])[1]");
+	By emailId = By.xpath("//input[@placeholder='Email address']") ;
+	By phoneNumber = By.xpath("//input[@placeholder='Phone number']");
+	By continueButton = By.xpath("//a[@id='btnContinue']");
+
+	public CheckOutPage(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+
+	public void selectTitleAdult1(String titleNumber) {
+		WebElement titleAdultOne = driver.findElement(titleAdult1);
+		Select titleAdultselect1 = new Select(titleAdultOne);
+		titleAdultselect1.selectByValue(titleNumber);
+	}
+
+
+	public void enterAdultOneFirstName(String frstName) {
+		driver.findElement(firstName).sendKeys(frstName);
+	}
+
+	public void enterAdultOneMiddleName(String scndName) {
+		driver.findElement(middleName).sendKeys(scndName);
+	}
+
+	public void enterAdultOneLastName(String thrdName) {
+		driver.findElement(lastName).sendKeys(thrdName);
+	}
+	
+	public void enterEmailId(String emilId) {
+		driver.findElement(emailId).sendKeys(emilId);
+	}
+	public void enterPhoneNumber(String phonNumber) {
+		driver.findElement(phoneNumber).sendKeys(phonNumber);
+	}
+	public void clickContinue() {
+		driver.findElement(continueButton).click();
+	}
+
+}

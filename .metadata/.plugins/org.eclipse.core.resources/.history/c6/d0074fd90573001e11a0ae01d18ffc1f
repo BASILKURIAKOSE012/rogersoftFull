@@ -1,0 +1,13 @@
+package musafirpages;
+
+import org.openqa.selenium.WebDriver;
+
+public class PaymentPage {
+WebDriver driver;
+
+public PaymentPage(WebDriver driver) {
+	super();
+	this.driver = driver;
+}
+
+}

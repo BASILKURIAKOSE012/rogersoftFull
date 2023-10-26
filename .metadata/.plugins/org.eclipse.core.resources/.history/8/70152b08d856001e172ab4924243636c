@@ -1,0 +1,14 @@
+package oops.inheritance;
+
+public class InheritanceMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Teacher teacher1 = new Teacher();
+		teacher1.setCollegeName("RogerSoft");
+		teacher1.setTeacherName("Jaya");
+		System.out.println(teacher1.getCollegeName());
+		System.out.println(teacher1.getTeacherName());
+	}
+
+}

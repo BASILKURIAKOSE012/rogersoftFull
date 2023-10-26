@@ -1,0 +1,163 @@
+package selenium_03_xpath;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class MusafirTestFinal {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+				System.setProperty("webdriver.chrome.driver","drivers\\\\chromedriver.exe");
+				WebDriver driver = new ChromeDriver();
+				driver.manage().window().maximize();
+				driver.get("https://in.musafir.com/");
+				// to give implicit wait
+//				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+				driver.findElement(By.xpath("/html/body/form/div[3]/div[2]/div/div[1]/fieldset[1]/ul[2]/li[2]/label")).click();
+				driver.findElement(By.xpath("//input[@name='Origin']")).sendKeys("Kochi, India (COK)");
+				driver.findElement(By.xpath("//input[@name='Destination']")).sendKeys("Delhi, India (DEL)");
+				driver.findElement(By.xpath("//input[@name='StartDate']")).sendKeys("27/10/23");
+				
+				driver.findElement(By.xpath("//select[@name='AdultsFlight']")); 
+				
+				
+				WebElement dropDownAdult  = driver.findElement(By.xpath("//select[@name='AdultsFlight']"));
+				Select adultSelect  = new Select(dropDownAdult);
+				adultSelect.selectByValue("1");
+				
+//				WebElement dropDownChildren  = driver.findElement(By.xpath("//select[@name='ChildrenFlight']"));
+//				Select childrenSelect  = new Select(dropDownChildren);
+//				childrenSelect.selectByValue("1");
+//				
+//				WebElement dropDownInfant  = driver.findElement(By.xpath("//select[@name='InfantsFlight']"));
+//				Select infantSelect  = new Select(dropDownInfant);
+//				infantSelect.selectByValue("1");
+				
+				Thread.sleep(1000);
+				
+				driver.findElement(By.xpath("//i[@class='customLabel']")).click();
+				
+				
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[text()='Book'])[1]"))).click();
+				
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+				
+				// adult 1
+				
+				WebElement titleAdult1  = driver.findElement(By.xpath("(//select[@data-value-rule='required'])[1]"));
+				Select titleAdultselect1  = new Select(titleAdult1);
+				titleAdultselect1.selectByValue("1");
+				
+				driver.findElement(By.xpath("(//input[@placeholder='First name'])[1]")).sendKeys("Tovino");
+				driver.findElement(By.xpath("(//input[@placeholder='Middle name (optional)'])[1]")).sendKeys("Joseph");
+				driver.findElement(By.xpath("(//input[@placeholder='Last name'])[1]")).sendKeys("Kuriakose");
+//				driver.findElement(By.xpath("(//input[@placeholder='Date of birth (dd/mm/yyyy)'])[1]")).sendKeys("26/05/1991");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport number'])[1]")).sendKeys("1234444555553");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport expiry date (dd/mm/yyyy)'])[1]")).sendKeys("12/12/2025");
+//				
+//				WebElement dropDownNationalitySelect1 = driver.findElement(By.xpath("(//select[@class='country'])[1]"));
+//				Select nationalitySelect1 = new Select(dropDownNationalitySelect1);
+//				nationalitySelect1.selectByValue("100");
+//				
+//				WebElement dropDownPassportIssue1 = driver.findElement(By.xpath("(//select[@class='issue'])[1]"));
+//				Select passportIssue1 = new Select(dropDownPassportIssue1);
+//				passportIssue1.selectByValue("100");
+				
+				
+				// adult2
+				
+//				WebElement titleAdult2  = driver.findElement(By.xpath("(//select[@data-value-rule='required'])[4]"));
+//				Select titleAdultselect2  = new Select(titleAdult2);
+//				titleAdultselect2.selectByValue("3");
+//				
+//				driver.findElement(By.xpath("(//input[@placeholder='First name'])[2]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Middle name (optional)'])[2]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Last name'])[2]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Date of birth (dd/mm/yyyy)'])[2]")).sendKeys("26/05/1991");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport number'])[2]")).sendKeys("1234444445555");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport expiry date (dd/mm/yyyy)'])[2]")).sendKeys("12/12/2025");
+//				
+//				WebElement dropDownNationalitySelect2 = driver.findElement(By.xpath("(//select[@class='country'])[2]"));
+//				Select nationalitySelect2 = new Select(dropDownNationalitySelect2);
+//				nationalitySelect2.selectByValue("100");
+//				
+//				WebElement dropDownPassportIssue2 = driver.findElement(By.xpath("(//select[@class='issue'])[2]"));
+//				Select passportIssue2 = new Select(dropDownPassportIssue2);
+//				passportIssue2.selectByValue("100");
+//				
+				//children 1
+				
+//				WebElement titleChildren1  = driver.findElement(By.xpath("(//select[@data-value-rule='required'])[7]"));
+//				Select titleChildrenselect1  = new Select(titleChildren1);
+//				titleChildrenselect1.selectByValue("4");
+//				
+//				driver.findElement(By.xpath("(//input[@placeholder='First name'])[3]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Middle name (optional)'])[3]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Last name'])[3]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Date of birth (dd/mm/yyyy)'])[3]")).sendKeys("26/05/2021");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport number'])[3]")).sendKeys("123333334444");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport expiry date (dd/mm/yyyy)'])[3]")).sendKeys("12/12/2025");
+//				
+//				WebElement dropDownNationalitySelect3 = driver.findElement(By.xpath("(//select[@class='country'])[3]"));
+//				Select nationalitySelect3 = new Select(dropDownNationalitySelect3);
+//				nationalitySelect3.selectByValue("100");
+//				
+//				WebElement dropDownPassportIssue3 = driver.findElement(By.xpath("(//select[@class='issue'])[3]"));
+//				Select passportIssue3 = new Select(dropDownPassportIssue3);
+//				passportIssue3.selectByValue("100");
+//				
+				//infant 1
+				
+//				WebElement titleInfant1  = driver.findElement(By.xpath("(//select[@data-value-rule='required'])[10]"));
+//				Select titleInfantselect1  = new Select(titleInfant1);
+//				titleInfantselect1.selectByValue("4");
+//				
+//				driver.findElement(By.xpath("(//input[@placeholder='First name'])[4]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Middle name (optional)'])[4]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Last name'])[4]")).sendKeys("ABC");
+//				driver.findElement(By.xpath("(//input[@placeholder='Date of birth (dd/mm/yyyy)'])[4]")).sendKeys("26/05/2023");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport number'])[4]")).sendKeys("123666667777");
+//				driver.findElement(By.xpath("(//input[@placeholder='Passport expiry date (dd/mm/yyyy)'])[4]")).sendKeys("12/12/2025");
+//				
+//				WebElement dropDownNationalitySelect4 = driver.findElement(By.xpath("(//select[@class='country'])[4]"));
+//				Select nationalitySelect4 = new Select(dropDownNationalitySelect4);
+//				nationalitySelect4.selectByValue("100");
+//				
+//				WebElement dropDownPassportIssue4 = driver.findElement(By.xpath("(//select[@class='issue'])[4]"));
+//				Select passportIssue4 = new Select(dropDownPassportIssue4);
+//				passportIssue4.selectByValue("100");
+				
+				//email address
+				
+				driver.findElement(By.xpath("//input[@placeholder='Email address']")).sendKeys("basilk012@gmail.com");
+				
+				// phone number
+				
+				driver.findElement(By.xpath("//input[@placeholder='Phone number']")).sendKeys("1234567899");
+						
+				// click continue button
+				driver.findElement(By.xpath("//a[@id='btnContinue']")).click();
+				
+				Thread.sleep(3000);
+				
+				//iframe
+				WebElement iFrame = driver.findElement(By.xpath("(//iframe)[2]"));
+				
+				driver.switchTo().frame(iFrame);
+				
+				driver.findElement(By.xpath("//i[@class='customLabel']")).click();
+				
+				
+			
+	}
+
+}

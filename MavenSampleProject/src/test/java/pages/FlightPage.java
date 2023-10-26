@@ -1,0 +1,18 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class FlightPage {
+	WebDriver driver;
+	By clickFlights = By.linkText("Flights");
+	By tripType = By.xpath("(//input[@name='tripType'])[2]");
+	By enterPassengerCount = By.xpath("//select[@name='passCount']");
+	By enterDepartingTown =  By.xpath("//select[@name='fromPort']");
+	
+	public void clickFlight() {
+		driver.findElement(enterPassengerCount).sendKeys("1");
+	}
+	
+
+}

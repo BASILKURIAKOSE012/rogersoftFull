@@ -1,0 +1,49 @@
+package testcases1;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.LoginPage;
+import pages.RegisterPage;
+
+public class TC_02_MercuryToursPOM_Test {
+	WebDriver driver;
+	LoginPage lPage;
+	RegisterPage rPage;
+
+	@Test
+	public void login() {
+		lPage.enterUserName("invalid");
+		lPage.enterPassword("invalid");
+		lPage.clicksubmitButton();
+		
+	}
+
+	@Test
+	public void register() {
+		rPage.clickRegister();
+		rPage.enterFirstName("Basil");
+		rPage.enterLastName("kuriakose");
+		rPage.enterPhoneNumber("123456789");
+	}
+
+	@BeforeTest
+	public void beforeTest() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		lPage = new LoginPage(driver);
+		rPage = new RegisterPage(driver);
+
+		driver.manage().window().maximize();
+		driver.get("https://demo.guru99.com/test/newtours");
+	}
+
+	@AfterTest
+	public void afterTest() {
+		driver.close();
+	}
+}

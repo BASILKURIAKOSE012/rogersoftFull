@@ -1,0 +1,72 @@
+package musafirtestcases;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import musafirpages.BookPage;
+import musafirpages.HomePage;
+
+public class TC_01_MusafirPOM_Test {
+
+	WebDriver driver;
+	HomePage homePage;
+	BookPage bookPage;
+
+	@Test
+	public void tripType()  {
+		homePage.clickTripType();
+	
+	}
+	@Test
+	public void originCity()  {
+	
+		
+		homePage.enterOrginCity("Kochi, India (COK)");
+	}
+	@Test
+	public void destinationCity()   {
+		
+		homePage.enterDestinationCity("Delhi, India (DEL)");
+	}
+	@Test
+	public void startDate() {
+		homePage.enterStartDate("29/10/23");
+	}
+	@Test
+	public void adultNumber() {
+		homePage.enterAdultNumber("2");
+	}
+	@Test
+	@AfterSuite
+	public void findFlights() throws InterruptedException {
+		homePage.clickFlight();
+	}
+	@Test
+	public void bookFlight() {
+		bookPage.clickBookFlight();
+	}
+	
+
+	@BeforeTest
+	public void beforeTest() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		this.homePage = new HomePage(driver);
+		driver.manage().window().maximize();
+		driver.get("https://in.musafir.com/");
+	}
+
+	@AfterTest
+	public void afterTest() {
+//		driver.close();
+	}
+	@AfterTest
+	public void delay() throws InterruptedException {
+		Thread.sleep(1000);
+	}
+}
